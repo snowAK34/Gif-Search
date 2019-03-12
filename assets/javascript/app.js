@@ -1,24 +1,25 @@
 $(document).ready(function () {
     let topics = ["corgi", "labrador", "poodle", "puggle", "chihuahua", "dachshund", "beagle", "dalmatian"]
 
+    function renderButtons() {
 
-    // render the buttons
-    for (let i = 0; i < topics.length; i++) {
+        $("#button-bank").empty();
 
+        for (let i = 0; i < topics.length; i++) {
 
-        let b = $("<button>");
-        b.attr("data-name", topics[i]);
-        b.text(topics[i]);
-        $("#button-bank").append(b);
+            let b = $("<button>");
+            b.attr("class", "topic-button");
+            b.attr("data-name", topics[i]);
+            b.text(topics[i]);
+            $("#button-bank").append(b);
+        }
     }
 
+    renderButtons();
 
-    // event listener for each button to hit api
-
-    $("button").on("click", function () {
+    function loadGifs() {
 
         let topic = $(this).attr("data-name");
-        console.log(topic);
 
         let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=vPwOjTEYArQIh2upLByo1EwzZjSPyuOy&limit=10";
 
@@ -27,14 +28,11 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
 
-            console.log(response);
-
             let gifArr = response.data
 
             $("#gif-div").empty();
 
             for (let i = 0; i < gifArr.length; i++) {
-
 
                 let gifLink = gifArr[i].images.fixed_height_still.url;
                 let animatedLink = gifArr[i].images.fixed_height.url;
@@ -46,25 +44,32 @@ $(document).ready(function () {
                 $("#gif-div").append(gif);
                 $("#gif-div").append("<p>Rating: " + rating + "</p>");
 
-
-                $(document).on("click", ".gifImage", function () {
+                gif.on("click", function () {
                     if ($(this).attr("state") === "still") {
                         $(this).attr("src", animatedLink);
                         $(this).attr("state", "animated");
                     }
                     else {
-                        $(this).attr("src");
+                        $(this).attr("src", gifLink);
                         $(this).attr("state", "still");
                     }
                 });
             }
         });
+    };
 
+    $("#add-button").on("click", function (event) {
+        event.preventDefault();
+
+        let usrInput = $("#topic-input").val().trim();
+
+        topics.push(usrInput);
+
+        renderButtons();
+
+        $("#topic-input").val("");
     });
 
-    // add input field to generate new buttons
-
-    // event listener for created images
-
+    $(document).on("click", ".topic-button", loadGifs);
 
 });
