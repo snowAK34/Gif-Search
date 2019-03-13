@@ -1,0 +1,46 @@
+body {
+    box-sizing: border-box;
+    background-image: url(../images/morocco.png)
+}
+
+#button-bank {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fdffad;
+    border: solid 2px #1a6266;
+}
+
+#add-form {
+    margin: 30px;
+    padding: 10px;
+    background-color: #fdffad;
+    border: solid 2px #1a6266;
+}
+
+input {
+    margin: 10px auto;
+}
+#topic-input {
+    margin: 5px auto;
+    width: 100%;
+}
+
+#gif {
+    
+    border: solid 2px #1a6266;    
+}
+
+#rating {
+    margin: 5px;
+    padding: 5px;
+    background-color: #fdffad;
+    border: solid 2px #1a6266; 
+    color: #1a6266;
+}
+
+@media (max-width: 1000px) {
+    #content-below-buttons {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

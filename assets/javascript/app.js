@@ -36,13 +36,13 @@ $(document).ready(function () {
 
                 let gifLink = gifArr[i].images.fixed_height_still.url;
                 let animatedLink = gifArr[i].images.fixed_height.url;
-                let gif = $("<img class='gifImage' state='still'>");
+                let gif = $("<img class='gifImage' id='gif' state='still'>");
                 gif.attr("src", gifLink);
 
                 let rating = gifArr[i].rating;
 
                 $("#gif-div").append(gif);
-                $("#gif-div").append("<p>Rating: " + rating + "</p>");
+                $("#gif-div").append("<p><span id='rating'>Rating: " + rating + "</span></p>");
 
                 gif.on("click", function () {
                     if ($(this).attr("state") === "still") {
