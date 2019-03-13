@@ -15,3 +15,5 @@ The theme of the app was designed around breeds of dogs, but the input field for
 Going forward, I would like to improve the design of the page to make it look better.
 
 I would also like to add some of the bonus functions that had been suggested as a part of this exercise.
+
+I'd also like to add the ability to be able to remove buttons that were added.
