@@ -1,5 +1,7 @@
 # Gif-Search
 
+https://github.com/snowAK34
+
 ## Description
 
 A simple gif search that brings up gifs related to a particular topic on a button click.
