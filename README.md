@@ -1,6 +1,6 @@
 # Gif-Search
 
-https://github.com/snowAK34
+ https://snowak34.github.io/Gif-Search/
 
 ## Description
 
